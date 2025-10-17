@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelalem Gedfew Asires - Professional Web Developer</title>
+    <meta name="description" content="Zelalem Gedfew Asires creates responsive, modern websites and portfolios that work perfectly on all devices. Contact for web development services.">
+    <meta name="keywords" content="web developer, responsive websites, portfolio, Zelalem Gedfew Asires, web design, frontend development">
+    <meta name="author" content="Zelalem Gedfew Asires">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #3498db;
+            --accent: #ff6347;
+            --secondary: #2c3e50;
+            --light: #f5f5f5;
+            --gray: #95a5a6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #e5533d;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--secondary);
+        }
+
+        /* Moving Text Animation */
+        .moving-text-container {
+            overflow: hidden;
+            background-color: var(--primary);
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .moving-text {
+            white-space: nowrap;
+            animation: moveText 20s linear infinite;
+            color: white;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        @keyframes moveText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Hero Section with Video Background */
+        .hero {
+            position: relative;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0 100px;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text { flex: 1; }
+        .about-image { flex: 1; text-align: center; }
+
+        .profile-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+            border: 5px solid var(--white);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .skill-tag.accent { background-color: var(--accent); }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-image {
+            height: 200px;
+            background-color: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .testimonial-link {
+            display: block;
+            margin-top: 10px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .testimonial-link:hover {
+            text-decoration: underline;
+        }
+
+        .admin-panel {
+            background-color: khaki;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .admin-panel h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .call-now {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #2ecc71;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                padding: 20px;
+            }
+
+            .nav-links.active { display: flex; }
+
+            .nav-links li { margin: 10px 0; }
+            .mobile-menu { display: block; }
+            .about-content { flex-direction: column; }
+
+            h1 { font-size: 2rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div style="background-color: rgb(217, 219, 220);" class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Zelalem Gedfew</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Moving Text Banner -->
+    <div class="moving-text-container">
+        <div class="moving-text">
+            I create responsive, modern websites and portfolio for customers that work perfectly on all devices (phones, tablets, and computers).
+        </div>
+    </div>
+
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="3619963577-preview.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 style="font-style: italic;"><marquee>Welcome to ethio_tech 2030</marquee></h1>
+            <p style="font-style: oblique;text-overflow: ellipsis;">my name is zelalem&I am Professional Web Developer specializing in responsive, modern websites and portfolios</p>
+            <a href="#contact" class="btn btn-large" style="background-color: #07562e;">know ordered us!</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm Zelalem Gedfew Asires, a passionate web developer with expertise in creating modern, responsive websites that deliver exceptional user experiences across all devices.</p>
+                    <p>My journey in web development began with a curiosity about how websites work, and it has evolved into a dedicated career focused on building digital solutions that help businesses and individuals establish a strong online presence.</p>
+                    <p>I believe in clean code, intuitive design, and creating websites that not only look great but also perform exceptionally well and help achieve your business goals.</p>
+                    
+                    <h3>My Skills</h3>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag accent">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag accent">PHP</span>
+                        <span class="skill-tag accent">SQL</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UI/UX Principles</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <!-- Profile Photo -->
+                    <img src="photo_2025-10-17_13-21-32.jpg" alt="Zelalem Gedfew Asires" class="profile-photo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>My Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Responsive Web Design</h3>
+                    <p>I create websites that look and function perfectly on all devices - from smartphones to desktop computers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Portfolio Websites</h3>
+                    <p>Showcase your work with elegant portfolio websites designed to highlight your talents and achievements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Fast & Optimized</h3>
+                    <p>Your website will be optimized for speed and performance, ensuring a smooth experience for your visitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section style="background-color: #a5e2c5;" id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>My Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, var(--primary) 0%, #2980b9 100%);">
+                        <i class="fas fa-briefcase" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Corporate Business Site</h3>
+                        <p>A responsive website for a local business with modern design and contact functionality.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, var(--accent) 0%, #e5533d 100%);">
+                        <i class="fas fa-paint-brush" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Artist Portfolio</h3>
+                        <p>A creative portfolio website showcasing artwork with an elegant gallery layout.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">
+                        <i class="fas fa-shopping-cart" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Online Store</h3>
+                        <p>An e-commerce website with product catalog, shopping cart, and secure checkout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Client Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Zelalem created an amazing portfolio website for my photography business. The site is fast, responsive, and exactly what I needed to showcase my work.
+                    </div>
+                    <div class="testimonial-author">- Sarah Johnson, Photographer</div>
+                    <a href="#" class="testimonial-link">View Project →</a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        Working with Zelalem was a great experience. He delivered our corporate website on time and exceeded our expectations with the design and functionality.
+                    </div>
+                    <div class="testimonial-author">- Michael Brown, CEO at TechCorp</div>
+                    <a href="#" class="testimonial-link">View Project →</a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        The e-commerce site Zelalem built for my store has helped increase my online sales by 40%. Highly recommended for anyone needing a professional website.
+                    </div>
+                    <div class="testimonial-author">- Emily Davis, Shop Owner</div>
+                    <a href="#" class="testimonial-link">View Project →</a>
+                </div>
+            </div>
+
+            <!-- Admin Panel for Adding Testimonials -->
+            <div style="background-color: khaki;" class="admin-panel">
+                <h3>Admin: Add New Testimonial</h3>
+                <form id="testimonial-form">
+                    <div class="form-group">
+                        <label for="testimonial-text">Testimonial Text</label>
+                        <textarea id="testimonial-text" class="form-control" placeholder="Enter the testimonial text..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonial-author">Author Name</label>
+                        <input type="text" id="testimonial-author" class="form-control" placeholder="Enter author name..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="testimonial-link">Project Link</label>
+                        <input type="url" id="testimonial-link" class="form-control" placeholder="Enter project URL...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Testimonial</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>Ready to start your project? Reach out to me through any of these methods:</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <a href="tel:0973511216">0973511216</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4 style="font-style: italic;">Email</h4>
+                            <a href="mailto:ww.zoom2030@gmail.com">ww.zoom2030@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h4>Response Time</h4>
+                            <p>I typically respond within 24 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Me a Message</h3>
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Your Phone</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project">Project Details</label>
+                            <textarea id="project" class="form-control" placeholder="Tell me about your website requirements, timeline, and budget..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                    
+                    <div id="successMessage" class="success-message">
+                        Thank you for your message! I'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="call-now">
+                <p>Prefer to talk directly?</p>
+                <a href="tel:0973511216" class="btn btn-large">Call Now: 0973511216</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Zelalem Gedfew Asires</h3>
+                <p>Professional Web Developer</p>
+                
+                <div class="footer-contact">
+                    <a href="tel:0973511216">Phone: 0973511216</a>
+                    <a href="mailto:ww.zoom2030@gmail.com">Email: ww.zoom2030@gmail.com</a>
+                </div>
+                
+                <div class="copyright">
+                    &copy; <span id="currentYear"></span> Zelalem Gedfew Asires. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form submission handling
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this demo, we'll just show a success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset the form
+            this.reset();
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Testimonial form handling
+        document.getElementById('testimonial-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const text = document.getElementById('testimonial-text').value;
+            const author = document.getElementById('testimonial-author').value;
+            const link = document.getElementById('testimonial-link').value;
+            
+            // Create new testimonial card
+            const testimonialGrid = document.querySelector('.testimonials-grid');
+            const newTestimonial = document.createElement('div');
+            newTestimonial.className = 'testimonial-card';
+            newTestimonial.innerHTML = `
+                <div class="testimonial-text">${text}</div>
+                <div class="testimonial-author">- ${author}</div>
+                ${link ? `<a href="${link}" class="testimonial-link">View Project →</a>` : ''}
+            `;
+            
+            // Add to the beginning of the grid
+            testimonialGrid.prepend(newTestimonial);
+            
+            // Reset form
+            this.reset();
+            
+            alert('Testimonial added successfully!');
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
